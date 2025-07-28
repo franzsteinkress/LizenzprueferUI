@@ -52,7 +52,7 @@ Ein Python-basiertes Lizenzprüfungssystem, das Lizenzdateien mit RSA-Signaturen
 
 ### Grafische Benutzeroberfläche (GUI)
 
-![LizenzprueferUI](.screenshots/lizenzprueferui.png)
+![LizenzprueferUI](.screenshots/LizenzprueferUI.png)
 
 ### Übersicht
 
