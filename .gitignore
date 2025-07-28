@@ -1,0 +1,37 @@
+# Python-spezifische Dateien
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Systemdateien
+.DS_Store
+Thumbs.db
+
+# VS Code-Einstellungen
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+
+# Virtuelle Umgebung
+.venv/
+.env
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Ausgabedateien
+*.csv
+*.png
+!.screenshots/*.png
+
+# Log-Dateien
+*.log
+logs.txt
+
+# Projekt-spezifische Dateien
+outputs/
+.lastpath
+docs/*
