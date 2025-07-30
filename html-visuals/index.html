@@ -1,0 +1,99 @@
+<!-- Copyright (c) 2025 Mein Name
+     Licensed under the MIT License - see LICENSE for details -->
+     
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>UI Design Vorschau</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <img width="32" height="32" src="./resources/fs.ico" alt="Icon"/>
+    <h1>UI Designs</h1>
+</div>
+
+<div class="overlay-box" id="overlayBox">
+    <div class="nav-arrows">
+        <button id="leftBtn" class="arrow left">←</button>
+        <button id="rightBtn" class="arrow right">→</button>
+    </div>
+    <div class="text">
+        <div class="line1">UI Designs</div>
+        <div class="line2" id="description">Beschreibung</div>
+    </div>
+    <img src="./assets/bild1.png" alt="Screenshots des Designs">
+    <button id="closeBtn">Bild 1 von 23</button>
+</div>
+
+<script>
+    const images = [
+        "flatly.png", "flatly_midblue.png", "journal.png", "cyborg.png", "vapor.png",
+        "solar.png", "superhero.png", "darkly.png", "litera.png", "litera_midblue.png",
+        "lumen.png", "cosmo.png", "minty.png", "pulse.png", "united.png",
+        "yeti.png", "yeti_midblue.png", "neon.png", "glass.png", "neumo.png",
+        "claymo.png", "aurora.png", "neo.png"
+    ];
+
+    const descriptions = [
+        "Flatly (Material Design)", "Flatly (Mid Blue)", "Journal (Minimal UI)", "Cyborg (Dark Mode)",
+        "Vapor (Modern Flat)", "Solar (Retro)", "Superhero (Neo-Brutal)", "Darkly (Dark Flat)",
+        "Litera (Clean Light)", "Litera (Mid Blue)", "Lumen (Soft Light)", "Cosmo (Modern Light)",
+        "Minty (Fresh Light)", "Pulse (Vibrant)", "United (Bold)", "Yeti (Soft Blue)",
+        "Yeti (Mid Blue)", "Dark Neon Mode", "Glassmorphism", "Neumorphism",
+        "Claymorphism", "Aurora Art Style", "Neo-Brutal (Gelb)"
+    ];
+
+    const dominantColors = [
+        "#2d74b2", "#225b94", "#777", "#121212", "#91d6ff",
+        "#ffde88", "#ff3377", "#2f2f2f", "#f9f9f9", "#87b9f7",
+        "#f4f4f4", "#e6e6e6", "#d5f5e3", "#f56cb5", "#e95420",
+        "#d0e7f9", "#89c2e3", "#1bfffc", "#ffffffcc", "#ebebeb",
+        "#dadada", "#f2f2f2", "#f5e342"
+    ];
+
+    let imageIndex = 0;
+    const img = document.querySelector(".overlay-box img");
+    const button = document.getElementById("closeBtn");
+    const desc = document.getElementById("description");
+    const overlayBox = document.getElementById("overlayBox");
+
+    function updateView() {
+        img.src = `./assets/${images[imageIndex]}`;
+        desc.innerText = descriptions[imageIndex] || "Keine Beschreibung verfügbar";
+        button.innerText = `Bild ${imageIndex + 1} von ${images.length}`;
+        overlayBox.style.backgroundColor = dominantColors[imageIndex];
+    }
+
+    function nextImage() {
+        imageIndex = (imageIndex + 1) % images.length;
+        updateView();
+    }
+
+    function prevImage() {
+        imageIndex = (imageIndex - 1 + images.length) % images.length;
+        updateView();
+    }
+
+    document.getElementById("leftBtn").addEventListener("click", prevImage);
+    document.getElementById("rightBtn").addEventListener("click", nextImage);
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") prevImage();
+        if (e.key === "ArrowRight") nextImage();
+    });
+
+    let startX = 0;
+    document.addEventListener("touchstart", (e) => startX = e.touches[0].clientX);
+    document.addEventListener("touchend", (e) => {
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 50) {
+            dx > 0 ? prevImage() : nextImage();
+        }
+    });
+
+    updateView();
+</script>
+</body>
+</html>

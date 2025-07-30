@@ -23,9 +23,9 @@ Thumbs.db
 .ipynb_checkpoints/
 
 # Ausgabedateien
-*.csv
-*.png
-!.screenshots/*.png
+#*.csv
+#*.png
+#!.screenshots/*.png
 
 # Log-Dateien
 *.log
@@ -35,3 +35,4 @@ logs.txt
 outputs/
 .lastpath
 docs/*
+html-visuals/docs/*
