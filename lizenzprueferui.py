@@ -131,18 +131,6 @@ def generate_keypair():
     except Exception as e:
         messagebox.showerror("Fehler", f"Fehler: {str(e)}")
 
-#def choose_license_save_path():
-#    file_path = filedialog.asksaveasfilename(
-#        defaultextension=".json",
-#        filetypes=[("JSON-Dateien", "*.json")],
-#        initialfile="lizenz.json",
-#        initialdir=os.path.join(os.getcwd(), "config", "licenses"),
-#        title="Lizenzdatei speichern unter"
-#    )
-#    if file_path:
-#        entry_lizenz_datei.delete(0, tk.END)
-#        entry_lizenz_datei.insert(0, file_path)
-
 def choose_license_save_path():
     folder = filedialog.askdirectory(
         initialdir=os.path.join(os.getcwd(), "config", "licenses"),
@@ -365,26 +353,26 @@ frame_create.columnconfigure(1, weight=1)
 frame_create.columnconfigure(2, weight=1)
 frame_create.rowconfigure([0, 1, 2, 3, 4], weight=1)
 
-ttk.Label(frame_create, text="Lizenznehmer (Name)", width=27).grid(row=0, column=0, sticky="w", padx=10, pady=2)
+ttk.Label(frame_create, text="Lizenznehmer (Name):", width=27).grid(row=0, column=0, sticky="w", padx=10, pady=2)
 entry_lizenznehmer = ttk.Entry(frame_create, width=40)
 entry_lizenznehmer.grid(row=0, column=1, padx=5, pady=2, sticky="ew")
 entry_lizenznehmer.insert(0, "Max Mustermann")
 
-ttk.Label(frame_create, text="Ablaufdatum (YYYY-MM-DD)", width=27).grid(row=1, column=0, sticky="w", padx=10, pady=2)
+ttk.Label(frame_create, text="Gültig bis (YYYY-MM-DD):", width=27).grid(row=1, column=0, sticky="w", padx=10, pady=2)
 entry_ablaufdatum = ttk.Entry(frame_create, width=40)
 entry_ablaufdatum.grid(row=1, column=1, padx=5, pady=2, sticky="ew")
 entry_ablaufdatum.insert(0, "2026-12-31")
 
-ttk.Label(frame_create, text="Produkt-ID", width=27).grid(row=2, column=0, sticky="w", padx=10, pady=2)
+ttk.Label(frame_create, text="Produkt-ID:", width=27).grid(row=2, column=0, sticky="w", padx=10, pady=2)
 entry_produkt_id = ttk.Entry(frame_create, width=40)
 entry_produkt_id.grid(row=2, column=1, padx=5, pady=2, sticky="ew")
 entry_produkt_id.insert(0, "PROD123")
 
-ttk.Label(frame_create, text="Lizenz-Datei und Pfad", width=27).grid(row=3, column=0, sticky="w", padx=10, pady=2)
+ttk.Label(frame_create, text="Lizenzdatei (Pfad):", width=27).grid(row=3, column=0, sticky="w", padx=10, pady=2)
 entry_lizenz_datei = ttk.Entry(frame_create, width=40)
 entry_lizenz_datei.grid(row=3, column=1, padx=5, pady=2, sticky="ew")
 entry_lizenz_datei.insert(0, "config/licenses/lizenz.json")
-btn_choose_save = ttk.Button(frame_create, text="Pfad wählen", command=choose_license_save_path, width=20)
+btn_choose_save = ttk.Button(frame_create, text="Pfad wählen", command=choose_license_save_path, width=14)
 btn_choose_save.grid(row=3, column=2, padx=10, pady=2, sticky="ew")
 
 btn_create_license = ttk.Button(frame_create, text="Lizenz erstellen", command=create_license, width=30)
@@ -398,11 +386,11 @@ frame_check.columnconfigure(1, weight=1)
 frame_check.columnconfigure(2, weight=1)
 frame_check.rowconfigure([0, 1], weight=1)
 
-ttk.Label(frame_check, text="Lizenzdatei", width=27).grid(row=0, column=0, sticky="w", padx=10, pady=2)
+ttk.Label(frame_check, text="Lizenzdatei (Inhalt):", width=27).grid(row=0, column=0, sticky="w", padx=10, pady=2)
 entry_lizenz_datei_check = ttk.Entry(frame_check, width=40)
 entry_lizenz_datei_check.grid(row=0, column=1, padx=5, pady=2, sticky="ew")
 entry_lizenz_datei_check.insert(0, "config/licenses/lizenz.json")
-btn_choose_check = ttk.Button(frame_check, text="Datei wählen", command=choose_license_load_path, width=20)
+btn_choose_check = ttk.Button(frame_check, text="Datei wählen", command=choose_license_load_path, width=14)
 btn_choose_check.grid(row=0, column=2, padx=10, pady=2, sticky="ew")
 
 btn_check_license = ttk.Button(frame_check, text="Lizenz prüfen", command=check_license, width=30)

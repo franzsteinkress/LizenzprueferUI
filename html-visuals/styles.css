@@ -33,7 +33,7 @@ html, body {
 .container h1 {
     margin: 0;
     font-size: 1.5rem;
-    color: white;
+    color: #f5f5f5;
 }
 
 .overlay-box {
@@ -43,10 +43,11 @@ html, body {
     transform: translate(-50%, -50%);
     aspect-ratio: 9 / 16;
     height: 90vh;
-    /*width: auto;*/
     width: 56.25vh; /* 16:9 Breite zu 100% Höhe */
+    max-height: 90vh;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 15px;
+    border: 2px solid white;
     padding: 2vh;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     display: flex;
@@ -56,14 +57,7 @@ html, body {
     box-sizing: border-box;
     color: white;
     text-align: center;
-    overflow: hidden;
-}
-
-.overlay-box header,
-.overlay-box footer {
-    font-size: 2.2vh;
-    font-weight: bold;
-    padding: 1vh 0;
+    overflow: visible;
 }
 
 .overlay-box main {
@@ -77,20 +71,58 @@ html, body {
     overflow: auto;
 }
 
-.overlay-box img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 12px;
+.overlay-box header,
+.overlay-box footer {
+    font-size: 2.2vh;
+    font-weight: bold;
+    padding: 1vh 0;
+}
+
+.text {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .text .line1 {
     font-size: 2.4vh;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .text .line2 {
     font-size: 2vh;
+}
+
+.overlay-box img {
+    width: 100%; /* Bild füllt die Breite der overlay-box */
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* border-radius: 12px; */
+}
+
+button {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(200, 50, 50, 0.8);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#closeBtn {
+    margin-bottom: 90px;
+    background-color: white;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    padding: 1vh 2vh;
+    font-size: 1.8vh;
+    cursor: default;
 }
 
 .nav-arrows {
@@ -106,36 +138,27 @@ html, body {
 }
 
 .arrow {
+    margin-top: 40px;
     pointer-events: auto;
     background: none;
     color: white;
     border: 2px solid white;
     border-radius: 8px;
-    padding: 10px;
+    padding: 10px 20px;
     font-size: 2vh;
+    font-weight: bold;
     cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
     transition: transform 0.2s ease, background 0.3s ease;
+    outline: 1px solid lime;
 }
 
-.arrow.left {
-    margin-left: -3.5rem;
-}
-
-.arrow.right {
-    margin-right: -3.5rem;
-}
-
-.arrow:hover {
-    transform: scale(1.2);
-}
-
-#closeBtn {
-    background-color: white;
-    color: #333;
-    border: none;
-    border-radius: 8px;
-    padding: 1vh 2vh;
-    font-size: 1.8vh;
-    cursor: default;
-}
+.arrow.left  { left: -3.0rem;  margin-left: -3.5rem; top: 50%; transform: translateY(-50%) scale(1); }
+.arrow.right { right: -3.0rem; margin-right: -3.5rem; top: 50%; transform: translateY(-50%) scale(1); }
+.arrow:hover { transform: translateY(-50%) scale(1.2); }

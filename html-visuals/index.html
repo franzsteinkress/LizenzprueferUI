@@ -1,6 +1,6 @@
-<!-- Copyright (c) 2025 Mein Name
+<!-- Copyright (c) 2025 Franz Steinkress
      Licensed under the MIT License - see LICENSE for details -->
-     
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -20,10 +20,10 @@
         <button id="rightBtn" class="arrow right">→</button>
     </div>
     <div class="text">
-        <div class="line1">UI Designs</div>
+        <div class="line1" id="title">Titel</div>
         <div class="line2" id="description">Beschreibung</div>
     </div>
-    <img src="./assets/bild1.png" alt="Screenshots des Designs">
+    <img src="./assets/flatly.png" alt="Screenshots des Designs">
     <button id="closeBtn">Bild 1 von 23</button>
 </div>
 
@@ -36,13 +36,39 @@
         "claymo.png", "aurora.png", "neo.png"
     ];
 
-    const descriptions = [
+    const titles = [
         "Flatly (Material Design)", "Flatly (Mid Blue)", "Journal (Minimal UI)", "Cyborg (Dark Mode)",
         "Vapor (Modern Flat)", "Solar (Retro)", "Superhero (Neo-Brutal)", "Darkly (Dark Flat)",
         "Litera (Clean Light)", "Litera (Mid Blue)", "Lumen (Soft Light)", "Cosmo (Modern Light)",
         "Minty (Fresh Light)", "Pulse (Vibrant)", "United (Bold)", "Yeti (Soft Blue)",
         "Yeti (Mid Blue)", "Dark Neon Mode", "Glassmorphism", "Neumorphism",
         "Claymorphism", "Aurora Art Style", "Neo-Brutal (Gelb)"
+    ];
+
+    const descriptions = [
+        "Material-inspiriertes Design mit klaren Linien", 
+        "Variante mit mittlerem Blauton für moderne Wirkung", 
+        "Leichtes, fast papierhaftes Interface für fokussierte Inhalte", 
+        "Dunkler Style im Tech-Look mit hohem Kontrast", 
+        "Zeitgenössisches Flat-Design mit weichen Farben", 
+        "Nostalgisches Retro-Feeling mit warmem Farbschema", 
+        "Kraftvolles, kantiges Theme mit plakativem Stil", 
+        "Minimalistisches Dark Theme mit dezentem Auftritt", 
+        "Aufgeräumtes, klares Design für Lesbarkeit", 
+        "Litera mit kühlerem Blauton für sachlichere Darstellung", 
+        "Helles Theme mit sanften Kontrasten und flächigem Weiß", 
+        "Modernes Interface mit strukturierter Farbgebung", 
+        "Frisches, lebendiges UI mit Minzgrün-Akzenten", 
+        "Kraftvolles Design mit auffälliger Farbgebung", 
+        "Stabiles, farbkräftiges Theme mit politischem Touch", 
+        "Kühles, ruhiges UI mit weichen Blautönen", 
+        "Yeti in kräftigerem Blau - sachlich und modern", 
+        "Dunkles Theme mit Neonfarben für visuelle Spannung", 
+        "Transparente Ebenen mit weichen Lichtreflexen", 
+        "Weiche Schatten und plastische Tiefe durch Light UI", 
+        "Plastisches, rundes Design mit plastilinartiger Wirkung", 
+        "Leuchtende Farben und Lichtverläufe wie Polarlichter", 
+        "Kontrastreiches, plakatives Theme mit Fokus auf Gelb"
     ];
 
     const dominantColors = [
@@ -53,17 +79,37 @@
         "#dadada", "#f2f2f2", "#f5e342"
     ];
 
+    const fontColors = [
+        "#f5f5f5", "#f5f5f5", "#f5f5f5", "#f5f5f5", "#333", 
+        "#333", "#333", "#f5f5f5", "#333", "#333", 
+        "#333", "#333", "#333", "#333", "#f5f5f5", 
+        "#333", "#333", "#333", "#333", "#333", 
+        "#333", "#333", "#333"
+    ];
+
     let imageIndex = 0;
     const img = document.querySelector(".overlay-box img");
     const button = document.getElementById("closeBtn");
+    const titl = document.getElementById("title");
     const desc = document.getElementById("description");
     const overlayBox = document.getElementById("overlayBox");
+    const lBtn = document.getElementById("leftBtn");
+    const rBtn = document.getElementById("rightBtn");
 
     function updateView() {
         img.src = `./assets/${images[imageIndex]}`;
+        titl.innerText = titles[imageIndex] || "Kein Titel verfügbar";
         desc.innerText = descriptions[imageIndex] || "Keine Beschreibung verfügbar";
         button.innerText = `Bild ${imageIndex + 1} von ${images.length}`;
         overlayBox.style.backgroundColor = dominantColors[imageIndex];
+        overlayBox.style.color = fontColors[imageIndex];
+        overlayBox.style.outline = dominantColors[imageIndex];
+        lBtn.style.backgroundColor =  dominantColors[imageIndex];
+        lBtn.style.color =  fontColors[imageIndex];
+        lBtn.style.outline = dominantColors[imageIndex];
+        rBtn.style.backgroundColor =  dominantColors[imageIndex];
+        rBtn.style.color =  fontColors[imageIndex];
+        rBtn.style.outline = dominantColors[imageIndex];
     }
 
     function nextImage() {
