@@ -358,15 +358,15 @@ entry_lizenznehmer = ttk.Entry(frame_create, width=40)
 entry_lizenznehmer.grid(row=0, column=1, padx=5, pady=2, sticky="ew")
 entry_lizenznehmer.insert(0, "Max Mustermann")
 
-ttk.Label(frame_create, text="Gültig bis (YYYY-MM-DD):", width=27).grid(row=1, column=0, sticky="w", padx=10, pady=2)
-entry_ablaufdatum = ttk.Entry(frame_create, width=40)
-entry_ablaufdatum.grid(row=1, column=1, padx=5, pady=2, sticky="ew")
-entry_ablaufdatum.insert(0, "2026-12-31")
-
-ttk.Label(frame_create, text="Produkt-ID:", width=27).grid(row=2, column=0, sticky="w", padx=10, pady=2)
+ttk.Label(frame_create, text="Produkt-ID:", width=27).grid(row=1, column=0, sticky="w", padx=10, pady=2)
 entry_produkt_id = ttk.Entry(frame_create, width=40)
-entry_produkt_id.grid(row=2, column=1, padx=5, pady=2, sticky="ew")
+entry_produkt_id.grid(row=1, column=1, padx=5, pady=2, sticky="ew")
 entry_produkt_id.insert(0, "PROD123")
+
+ttk.Label(frame_create, text="Gültig bis (YYYY-MM-DD):", width=27).grid(row=2, column=0, sticky="w", padx=10, pady=2)
+entry_ablaufdatum = ttk.Entry(frame_create, width=40)
+entry_ablaufdatum.grid(row=2, column=1, padx=5, pady=2, sticky="ew")
+entry_ablaufdatum.insert(0, "2026-12-31")
 
 ttk.Label(frame_create, text="Lizenzdatei (Pfad):", width=27).grid(row=3, column=0, sticky="w", padx=10, pady=2)
 entry_lizenz_datei = ttk.Entry(frame_create, width=40)
