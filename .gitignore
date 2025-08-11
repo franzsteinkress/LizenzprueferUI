@@ -36,3 +36,15 @@ outputs/
 .lastpath
 docs/*
 html-visuals/docs/*
+insta-visuals/screenshots/*
+
+# Puppeteer
+node_modules/
+package-lock.json
+package.json
+
+# Sonstige Dateien
+*.txt
+doc/*
+docs/*
+

@@ -13,6 +13,7 @@ from tkinter import filedialog
 from ttkbootstrap import Style
 from ttkbootstrap.window import Window
 from ttkbootstrap import ttk
+# from datetime import date
 
 
 # Fenster erstellen
@@ -44,13 +45,13 @@ def configure_custom_styles():
     #style.configure("glass.TLabelframe", background="#ffffff80", foreground="#000000")
     #style.configure("glass.TLabelframe.Label", background="#ffffff80", foreground="#000000")
     # Statt: "#ffffff80" (ungültig)
-    style.configure("glass.TButton", background="#f8f8f8", foreground="#000000", bordercolor="#cccccc", lightcolor="#ffffff", darkcolor="#dddddd", relief="flat")
+    style.configure("glass.TButton", background="#f8f8f8", foreground="#000000", bordercolor="#cccccc", lightcolor="#ffffff", darkcolor="#dddddd", relief="raised", borderwidth=4)
     style.configure("glass.TLabel", background="#f0f0f0", foreground="#000000")
     style.configure("glass.TEntry", fieldbackground="#ffffff", foreground="#000000", bordercolor="#cccccc")
     style.configure("glass.TLabelframe", background="#f0f0f0", foreground="#000000")
     style.configure("glass.TLabelframe.Label", background="#f0f0f0", foreground="#000000")
 
-    style.configure("neumo.TButton", background="#e0e0e0", foreground="#333333", bordercolor="#b0b0b0", lightcolor="#ffffff", darkcolor="#b0b0b0", relief="flat")
+    style.configure("neumo.TButton", background="#e0e0e0", foreground="#333333", bordercolor="#b0b0b0", lightcolor="#ffffff", darkcolor="#b0b0b0", relief="raised", borderwidth=4)
     style.configure("neumo.TLabel", background="#e0e0e0", foreground="#333333")
     style.configure("neumo.TEntry", fieldbackground="#e0e0e0", foreground="#333333", bordercolor="#b0b0b0")
     style.configure("neumo.TLabelframe", background="#e0e0e0", foreground="#333333")
@@ -363,6 +364,9 @@ entry_produkt_id = ttk.Entry(frame_create, width=40)
 entry_produkt_id.grid(row=1, column=1, padx=5, pady=2, sticky="ew")
 entry_produkt_id.insert(0, "PROD123")
 
+# heute = date.today()
+# datum_string = heute.strftime("%Y-%m-%d")  # z. B. '2025-08-03'
+# ttk.Label(frame_create, text=f"Gültig bis: {datum_string}", width=27).grid(row=0, column=0, padx=10, pady=10)
 ttk.Label(frame_create, text="Gültig bis (YYYY-MM-DD):", width=27).grid(row=2, column=0, sticky="w", padx=10, pady=2)
 entry_ablaufdatum = ttk.Entry(frame_create, width=40)
 entry_ablaufdatum.grid(row=2, column=1, padx=5, pady=2, sticky="ew")
