@@ -34,7 +34,7 @@ logs.txt
 # Projekt-spezifische Dateien
 outputs/
 .lastpath
-docs/*
+docs/
 html-visuals/docs/*
 insta-visuals/screenshots/*
 
@@ -43,8 +43,14 @@ node_modules/
 package-lock.json
 package.json
 
-# Sonstige Dateien
+# Sonstiges
 *.txt
 doc/*
-docs/*
-
+insta-visuals/
+generate-insta-screenshots.js
+1080x1080-screenshots/
+1080x1080-visuals/
+1080x1920-screenshots/
+1080x1920-visuals
+generate-1080x1080-screenshots.js
+generate-1080x1920-screenshots.js
