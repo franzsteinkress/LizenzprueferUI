@@ -34,9 +34,6 @@ logs.txt
 # Projekt-spezifische Dateien
 outputs/
 .lastpath
-docs/
-html-visuals/docs/*
-insta-visuals/screenshots/*
 
 # Puppeteer
 node_modules/
@@ -46,7 +43,10 @@ package.json
 # Sonstiges
 *.txt
 doc/*
+docs/
+html-visuals/docs/*
 insta-visuals/
+insta-visuals/screenshots/*
 generate-insta-screenshots.js
 1080x1080-screenshots/
 1080x1080-visuals/
