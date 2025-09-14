@@ -79,7 +79,7 @@ html, body {
 @media (max-width: 767px) {
     .overlay-box {
         height: auto;
-        max-height: 60vh;
+        max-height: 80vh;
         overflow-y: auto;
         width: 100vw;
         min-height: 100vh;
@@ -111,6 +111,11 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+@media (max-width: 767px) {
+    .text {
+        margin-top: 100px;
+    }
 }
 
 .text .line1 {
