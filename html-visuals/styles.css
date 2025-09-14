@@ -79,7 +79,7 @@ html, body {
 @media (max-width: 767px) {
     .overlay-box {
         height: auto;
-        max-height: 80vh;
+        max-height: 70vh;
         overflow-y: auto;
         width: 100vw;
         min-height: 100vh;
